@@ -247,14 +247,12 @@ local function ScanContainer(container, numObtained)
 		local _, _, _, quality, _, _, _, _, _, itemID = GetContainerItemInfo(container, slot)
 		if quality == LE_ITEM_QUALITY_ARTIFACT then
 			local classID = select(12, GetItemInfo(itemID))
-			if classID == LE_ITEM_CLASS_WEAPON then
-				Debug("ARTIFACT_FOUND", "in", container, slot)
-				SocketContainerItem(container, slot)
-				GetViewedArtifactData()
-				Clear()
-				numObtained = numObtained - 1
-				if numObtained <= 0 then break end
-			end
+			Debug("ARTIFACT_FOUND", "in", container, slot)
+			SocketContainerItem(container, slot)
+			GetViewedArtifactData()
+			Clear()
+			numObtained = numObtained - 1
+			if numObtained <= 0 then break end
 		end
 	end
 
